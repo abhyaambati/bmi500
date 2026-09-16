@@ -1,0 +1,48 @@
+         106328 function calls (104360 primitive calls) in 2.227 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1022 to 40 due to restriction <40>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    2.227    2.227 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/legacy_api_wrap/__init__.py:83(fn_compatible)
+        1    0.000    0.000    2.227    2.227 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:469(rank_genes_groups)
+        1    0.002    0.002    2.194    2.194 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:398(compute_statistics)
+       11    0.002    0.000    2.155    0.196 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:277(wilcoxon)
+        9    0.000    0.000    1.855    0.206 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:45(_ranks)
+        8    0.000    0.000    1.840    0.230 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:10012(rank)
+        8    0.000    0.000    1.840    0.230 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:10127(ranker)
+        8    1.839    0.230    1.839    0.230 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/algorithms.py:1067(rank)
+        1    0.000    0.000    0.145    0.145 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:174(_basic_stats)
+       28    0.000    0.000    0.136    0.005 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scipy/sparse/_index.py:29(__getitem__)
+       20    0.000    0.000    0.131    0.007 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scipy/sparse/_csc.py:140(_get_arrayXslice)
+       20    0.000    0.000    0.131    0.007 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scipy/sparse/_compressed.py:651(_minor_index_fancy)
+       20    0.115    0.006    0.115    0.006 {built-in method scipy.sparse._sparsetools.csr_column_index2}
+  218/217    0.000    0.000    0.102    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1177(__getitem__)
+      135    0.000    0.000    0.098    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1690(_getitem_tuple)
+      215    0.000    0.000    0.098    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1720(_getitem_axis)
+       87    0.000    0.000    0.095    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1206(_getbool_axis)
+       80    0.000    0.000    0.094    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1005(_getitem_tuple_same_dim)
+       87    0.000    0.000    0.093    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:4164(_take_with_is_copy)
+       87    0.000    0.000    0.093    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:4049(take)
+       87    0.000    0.000    0.091    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/managers.py:888(take)
+       88    0.000    0.000    0.089    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/managers.py:642(reindex_indexer)
+      133    0.000    0.000    0.088    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/blocks.py:1353(take_nd)
+  148/147    0.000    0.000    0.087    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/array_algos/take.py:59(take_nd)
+      147    0.086    0.001    0.087    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/array_algos/take.py:120(_take_nd_ndarray)
+       80    0.000    0.000    0.054    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/frame.py:11688(sum)
+       80    0.000    0.000    0.054    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:12563(sum)
+       80    0.000    0.000    0.054    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:12524(_min_count_stat_function)
+       80    0.003    0.000    0.053    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/frame.py:11462(_reduce)
+       80    0.000    0.000    0.046    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/managers.py:1502(reduce)
+       80    0.000    0.000    0.043    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/blocks.py:400(reduce)
+       80    0.000    0.000    0.042    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/frame.py:11485(blk_func)
+       80    0.000    0.000    0.042    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/nanops.py:76(_f)
+       80    0.000    0.000    0.041    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/nanops.py:389(new_func)
+       80    0.000    0.000    0.041    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/nanops.py:455(newfunc)
+       80    0.000    0.000    0.041    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/nanops.py:604(nansum)
+      972    0.026    0.000    0.026    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+      161    0.000    0.000    0.024    0.000 {method 'sum' of 'numpy.ndarray' objects}
+      161    0.000    0.000    0.024    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/numpy/core/_methods.py:47(_sum)
+        1    0.000    0.000    0.019    0.019 /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/functools.py:930(wrapper)
+
+

@@ -1,0 +1,106 @@
+[TIMING] START settings
+scanpy==1.10.2 anndata==0.12.19 umap==0.5.12 numpy==1.26.4 scipy==1.17.1 pandas==2.3.3 scikit-learn==1.9.1 statsmodels==0.15.0 igraph==1.0.0 leidenalg==0.12.0 pynndescent==0.6.0
+using 1 threads
+[TIMING] END   settings: 2.6221 s
+[TIMING] START argparse
+[TIMING] END   argparse: 0.0003 s
+[TIMING] START io_read_10x
+[TIMING] END   io_read_10x: 0.2709 s
+[TIMING] START filter_cells_genes
+[TIMING] END   filter_cells_genes: 0.2217 s
+[TIMING] START normalize_log1p
+[TIMING] END   normalize_log1p: 0.1132 s
+[TIMING] START highly_variable_genes
+[TIMING] END   highly_variable_genes: 0.0896 s
+[TIMING] START scale
+[TIMING] END   scale: 0.0674 s
+[TIMING] START pca
+[TIMING] END   pca: 0.4635 s
+[TIMING] START neighbors
+[TIMING] END   neighbors: 10.4317 s
+[TIMING] START clustering
+[WARN] louvain not available; using leiden clustering instead
+[INFO] cluster key: leiden
+[TIMING] END   clustering: 1.3917 s
+[TIMING] START umap
+[TIMING] END   umap: 4.7919 s
+[TIMING] START write_h5ad
+AnnData object with n_obs × n_vars = 11537 × 2000
+    obs: 'n_genes', 'leiden'
+    var: 'gene_ids', 'n_cells', 'highly_variable', 'means', 'dispersions', 'dispersions_norm', 'mean', 'std'
+    uns: 'log1p', 'hvg', 'pca', 'neighbors', 'leiden', 'umap'
+    obsm: 'X_pca', 'X_umap'
+    varm: 'PCs'
+    obsp: 'distances', 'connectivities'
+[TIMING] END   write_h5ad: 0.3586 s
+[TIMING] START rank_genes_groups
+         323785 function calls (317987 primitive calls) in 7.603 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1065 to 40 due to restriction <40>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      2/1    0.000    0.000    7.603    7.603 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/legacy_api_wrap/__init__.py:83(fn_compatible)
+        1    0.000    0.000    7.438    7.438 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:469(rank_genes_groups)
+        1    0.007    0.007    7.423    7.423 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:398(compute_statistics)
+       25    0.171    0.007    5.653    0.226 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:45(_ranks)
+       24    0.000    0.000    5.425    0.226 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:10012(rank)
+       24    0.000    0.000    5.425    0.226 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:10127(ranker)
+       24    5.422    0.226    5.423    0.226 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/algorithms.py:1067(rank)
+       17    0.002    0.000    2.739    0.161 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:277(wilcoxon)
+        1    0.001    0.001    1.117    1.117 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:174(_basic_stats)
+       56    0.000    0.000    1.077    0.019 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scipy/sparse/_index.py:29(__getitem__)
+       32    0.000    0.000    1.050    0.033 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scipy/sparse/_csc.py:140(_get_arrayXslice)
+       32    0.001    0.000    1.050    0.033 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scipy/sparse/_compressed.py:651(_minor_index_fancy)
+       32    0.919    0.029    0.919    0.029 {built-in method scipy.sparse._sparsetools.csr_column_index2}
+  856/855    0.002    0.000    0.415    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1177(__getitem__)
+      469    0.001    0.000    0.400    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1690(_getitem_tuple)
+      853    0.002    0.000    0.400    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1720(_getitem_axis)
+      384    0.001    0.000    0.388    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1005(_getitem_tuple_same_dim)
+      391    0.000    0.000    0.387    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1206(_getbool_axis)
+      391    0.001    0.000    0.380    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:4164(_take_with_is_copy)
+      391    0.001    0.000    0.377    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:4049(take)
+      391    0.001    0.000    0.373    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/managers.py:888(take)
+      392    0.002    0.000    0.365    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/managers.py:642(reindex_indexer)
+      467    0.001    0.000    0.360    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/blocks.py:1353(take_nd)
+  482/481    0.001    0.000    0.358    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/array_algos/take.py:59(take_nd)
+      481    0.355    0.001    0.357    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/array_algos/take.py:120(_take_nd_ndarray)
+      384    0.001    0.000    0.170    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/frame.py:11688(sum)
+      384    0.000    0.000    0.169    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:12563(sum)
+      384    0.001    0.000    0.169    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:12524(_min_count_stat_function)
+      384    0.009    0.000    0.167    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/frame.py:11462(_reduce)
+      384    0.001    0.000    0.143    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/managers.py:1502(reduce)
+        1    0.000    0.000    0.143    0.143 /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/functools.py:930(wrapper)
+        1    0.141    0.141    0.143    0.143 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/_utils/__init__.py:781(_check_nonnegative_integers_in_mem)
+      384    0.000    0.000    0.127    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/blocks.py:400(reduce)
+       32    0.126    0.004    0.126    0.004 {built-in method scipy.sparse._sparsetools.csr_column_index1}
+      384    0.000    0.000    0.125    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/frame.py:11485(blk_func)
+      384    0.001    0.000    0.125    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/nanops.py:76(_f)
+      384    0.000    0.000    0.123    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/nanops.py:389(new_func)
+      384    0.001    0.000    0.122    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/nanops.py:455(newfunc)
+      384    0.001    0.000    0.121    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/nanops.py:604(nansum)
+     3834    0.082    0.000    0.082    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+
+
+
+[PROFILE] wrote profiling_results/pbmc10k_cprofile_rank_genes.txt
+[PROFILE] wrote profiling_results/pbmc10k_cprofile_rank_genes.pstats
+[TIMING] END   rank_genes_groups: 7.6092 s
+[TIMING] wrote profiling_results/pbmc10k_section_timings.json
+[TIMING] SUMMARY
+  settings                     2.6221 s
+  argparse                     0.0003 s
+  io_read_10x                  0.2709 s
+  filter_cells_genes           0.2217 s
+  normalize_log1p              0.1132 s
+  highly_variable_genes        0.0896 s
+  scale                        0.0674 s
+  pca                          0.4635 s
+  neighbors                   10.4317 s
+  clustering                   1.3917 s
+  umap                         4.7919 s
+  write_h5ad                   0.3586 s
+  rank_genes_groups            7.6092 s
+  dataset                  pbmc10k
+  n_obs                    11537
+  n_vars                   2000

@@ -130,6 +130,16 @@ ENV/
 env.bak/
 venv.bak/
 
+# Local scanpy / profiling artifacts (keep report + timings in repo)
+cache/
+data/**/filtered_gene_bc_matrices/
+data/*.h5ad
+*.h5ad
+.DS_Store
+
+# Keep profiling console logs even though *.log is ignored globally
+!profiling_results/*.log
+
 # Spyder project settings
 .spyderproject
 .spyproject

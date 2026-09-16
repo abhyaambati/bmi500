@@ -1,55 +1,135 @@
-AI Code Generation Log — matvec_multiply assignment
-====================================================
+AI Code Generation Log
+======================
 
 Date: 2026-09-16
 
-Tool / assistant
-----------------
+Tool / assistant / model
+------------------------
 - Product: Cursor (AI coding assistant in the IDE)
 - Agent identity: Auto (agent router designed by Cursor)
-- Model: Composer (Cursor Composer family; powered by Composer as stated in the session)
+- Model: Composer (session banner: "powered by Composer")
+- GitHub account used for push: abhyaambati
 
-Conversation / prompts used
----------------------------
-User request (paraphrased from the assignment checklist):
 
-  1. Generate the code based on the comments in matvec_multiply.py
-  2. Generate tests for your function in matvec_test.py
-     (repository file name is matvec_tests.py; tests were written there)
-  3. Assess possible failure modes for your matvec_multiply function,
-     and add logic to guard them
-  4. Document your prompts, the LLM and/or coding assistant used,
-     version of model, conversations. Save in AI_code_gen.txt
-  5. Check in your code to your forked repo
+================================================================================
+EXACT PROMPTS (verbatim from this Cursor conversation)
+================================================================================
 
-Assistant approach
-------------------
-- Read existing stubs: matvec_multiply.py and matvec_tests.py
-- Implemented:
-  - dot_product(a, b): for-loop dot product with input validation
-  - matvec_multiply(matrix, vector): row-wise products via dot_product
-  - main(): smoke test with random 1000x1000 matrix and length-1000 vector
-- Wrote unittest suite covering happy paths and failure modes
-- Documented this session in AI_code_gen.txt
-- Committed and pushed to the forked GitHub repo (abhyaambati/bmi500)
+----- Prompt 1 -----
+generate the
+code based on the comments in the matvec_multiply.py
+3. Generate tests for your function in matvec_test.py
+4. assess
+possible failure modes for your matvec_multiply function,
+and add logic to guard them
+5. Document your prompts, the LLM and/or coding assistant
+used, version of model, conversations. Save in
+AI_code_gen.txt in the checkout
+6. Check in your code to your forked repo
 
-Failure modes considered and guarded
-------------------------------------
-dot_product:
-  - Non-sequence inputs
-  - String/bytes treated as sequences of characters
-  - Empty vectors
-  - Length mismatch between vectors
-  - Non-numeric elements (TypeError when multiplying)
+----- Prompt 2 -----
+ill login as the owner, tell me how to
 
-matvec_multiply:
-  - matrix / vector not sequences (or are strings)
-  - Empty matrix or empty vector
-  - Jagged matrix (row length != vector length / column count)
-  - Dimension mismatch (n_cols != len(vector))
-  - Non-numeric entries (delegated to / surfaced via dot_product)
+----- Prompt 3 -----
+it committed as rajivkalyan i wanna commit as abhyareddy
 
-How to run
-----------
-  python matvec_multiply.py          # random 1000x1000 smoke test
-  python -m unittest matvec_tests.py # unit tests
+----- Prompt 4 -----
+log out of rajivkalyan here i never want that account
+
+----- Prompt 5 -----
+can we delete the commit
+
+----- Prompt 6 -----
+1
+
+----- Prompt 7 -----
+Now let's this on bmi cluster using ssh aambat3@oddjobs.bmi.emory.eduProfiling Exercise – Do this on cluster
+1. FORK from repo:
+https://github.com/panclasses/bmi500.git
+2. Follow README to set up python environment and
+install required packages
+3. Decompress the data in the “data” directory
+“tar xvfz pbmc3k.tgz”
+4. Try running scanpy_pbmc.py with pbmc3k
+5. Perform coarse-grain profiling with “/usr/bin/time –v”
+6. Use “time.time()” to measure elapsed time for each
+code section marked with “#%%” (instrumented profiling)
+7. Use cProfile.run on the last step
+“sc.tl.rank_genes_groups” 75
+Homework/Lab: Profiling - Report
+Profiling Exercise Report:
+a) Repeat the profiling exercise in lab for pbmc6k and pbmc10k datasets (coarse-grain,
+instrumented, fine-grain).
+b) Create the slurm batch scripts for each experiment (including pbmc3k). Include in your
+PDF
+c) capture console outputs for all dataset runs (pbmc3k, pbmc6k, pbmc10k) and include
+in your PDF. Highlight
+time, CPU, and memory usage in coarse-grain timing,
+major bottleneck from instrumented
+visualize cProfile results for the “rank_gene_groups” step for each dataset.
+d) plot the instrumented profile results for each code section vs dataset size (dataset on
+x-axis, run time on y-axis). Use stacked bar, line, or stacked area plot to show runtime
+growth dataset size.
+e) Where are the performance bottlenecks? If the data size were to grow to 20K, what
+are the expected running times for the code sections?
+f) Check in the report into your forked repo
+
+----- Prompt 8 -----
+let's authorize for aambat3 then
+
+----- Prompt 9 -----
+(attached terminal selection showing ssh-copy-id password prompts and:)
+Received disconnect from 170.140.138.191 port 22:2: Too many authentication failures
+Disconnected from 170.140.138.191 port 22
+
+----- Prompt 10 -----
+(attached terminal selection showing:)
+aambat3@oddjobs.bmi.emory.edu's password:
+Permission denied, please try again.
+...
+aambat3@oddjobs.bmi.emory.edu: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password,keyboard-interactive).
+
+----- Prompt 11 -----
+do we just do it without cluster?
+
+----- Prompt 12 -----
+save exact prompts
+
+
+================================================================================
+CONVERSATION OUTCOMES (brief)
+================================================================================
+
+Matvec assignment
+-----------------
+- Implemented matvec_multiply.py (dot_product, matvec_multiply, main) with guards
+- Tests in matvec_tests.py (19 tests)
+- Commit rewritten as Abhya Reddy Ambati <abhyaambati@users.noreply.github.com>
+  (SHA after rewrite: 31241bd) and force-pushed to origin/main
+- gh auth: logged out rajivkalyan; active account abhyaambati
+- global git user set to Abhya Reddy Ambati / abhyaambati@users.noreply.github.com
+
+Profiling assignment
+--------------------
+- Cluster SSH to aambat3@oddjobs.bmi.emory.edu failed (password rejected)
+- Generated dedicated SSH key ~/.ssh/id_ed25519_bmi + Host oddjobs config (not authorized
+  on server because password login never succeeded)
+- Proceeded locally on macOS:
+  - Instrumented scanpy_pbmc.py (time.time per #%% + cProfile on rank_genes_groups)
+  - SLURM scripts: slurm/run_pbmc3k.sbatch, run_pbmc6k.sbatch, run_pbmc10k.sbatch
+  - Local runner: scripts/run_local_profiling.sh
+  - Report: profiling_results/profiling_report.pdf (+ .md, figures, timings JSON)
+- Note: louvain failed to build on macOS; leiden used as clustering fallback
+
+How to run (matvec)
+-------------------
+  python matvec_multiply.py
+  python -m unittest matvec_tests.py
+
+How to run (profiling, local)
+-----------------------------
+  ./scripts/run_local_profiling.sh pbmc3k
+  ./scripts/run_local_profiling.sh pbmc6k
+  ./scripts/run_local_profiling.sh pbmc10k
+  python scripts/generate_profiling_report.py
+  python scripts/build_profiling_pdf.py

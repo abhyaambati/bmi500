@@ -1,0 +1,84 @@
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/_utils/__init__.py:27: FutureWarning: `__version__` is deprecated, use `importlib.metadata.version('anndata')` instead.
+  from anndata import __version__ as anndata_version
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_csv from `anndata` is deprecated. Import anndata.io.read_csv instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_excel from `anndata` is deprecated. Import anndata.io.read_excel instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_hdf from `anndata` is deprecated. Import anndata.io.read_hdf instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_loom from `anndata` is deprecated. Import anndata.io.read_loom instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_mtx from `anndata` is deprecated. Import anndata.io.read_mtx instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_text from `anndata` is deprecated. Import anndata.io.read_text instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_umi_tools from `anndata` is deprecated. Import anndata.io.read_umi_tools instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/logging.py:151: FutureWarning: `__version__` is deprecated, use `importlib.metadata.version('anndata')` instead.
+  yield dist_name, imp.__version__
+... writing an h5ad cache file to speedup reading next time
+filtered out 19024 genes that are detected in less than 3 cells
+normalizing counts per cell
+    finished (0:00:00)
+extracting highly variable genes
+    finished (0:00:00)
+--> added
+    'highly_variable', boolean vector (adata.var)
+    'means', float vector (adata.var)
+    'dispersions', float vector (adata.var)
+    'dispersions_norm', float vector (adata.var)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/preprocessing/_scale.py:316: UserWarning: Received a view of an AnnData. Making a copy.
+  view_to_actual(adata)
+... as `zero_center=True`, sparse input is densified and may lead to large memory consumption
+computing PCA
+    with n_comps=30
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/preprocessing/_pca.py:208: FutureWarning: `__version__` is deprecated, use `importlib.metadata.version('anndata')` instead.
+  Version(ad.__version__) < Version("0.9")
+    finished (0:00:00)
+computing neighbors
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/neighbors/__init__.py:411: FutureWarning: The method obsm_keys is deprecated and will be removed in the future. Use obsm instead of obsm_keys. (e.g. `k in adata.obsm` or `adata.obsm.keys() | {'u'}`)
+  if "X_diffmap" in adata.obsm_keys():
+    using 'X_pca' with n_pcs = 30
+    finished: added to `.uns['neighbors']`
+    `.obsp['distances']`, distances for each pair of neighbors
+    `.obsp['connectivities']`, weighted adjacency matrix (0:00:02)
+/Users/abhyaambati/bmi500/scanpy_pbmc.py:152: FutureWarning: In the future, the default backend for leiden will be igraph instead of leidenalg.
+
+ To achieve the future defaults please pass: flavor="igraph" and n_iterations=2.  directed must also be False to work with igraph's implementation.
+  sc.tl.leiden(adata, resolution=0.5)
+running Leiden clustering
+    finished: found 7 clusters and added
+    'leiden', the cluster labels (adata.obs, categorical) (0:00:00)
+computing UMAP
+    finished: added
+    'X_umap', UMAP coordinates (adata.obsm) (0:00:03)
+ranking genes
+    finished: added to `.uns['rank_genes_groups']`
+    'names', sorted np.recarray to be indexed by group ids
+    'scores', sorted np.recarray to be indexed by group ids
+    'logfoldchanges', sorted np.recarray to be indexed by group ids
+    'pvals', sorted np.recarray to be indexed by group ids
+    'pvals_adj', sorted np.recarray to be indexed by group ids (0:00:01)
+	Command being timed: "python scanpy_pbmc.py --data-dir data --data-set pbmc3k --out-dir data --num-threads 1 --profile-dir profiling_results"
+	User time (seconds): 14.25
+	System time (seconds): 1.61
+	Percent of CPU this job got: 74%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.42
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 847664
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 5986
+	Minor (reclaiming a frame) page faults: 200587
+	Voluntary context switches: 2238
+	Involuntary context switches: 62794
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 16384
+	Exit status: 0

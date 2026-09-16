@@ -1,0 +1,194 @@
+===== Profiling pbmc6k on Abhyas-MacBook-Air.local at Wed Sep 16 16:28:28 EDT 2026 =====
+TIME_CMD: gtime -v
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/_utils/__init__.py:27: FutureWarning: `__version__` is deprecated, use `importlib.metadata.version('anndata')` instead.
+  from anndata import __version__ as anndata_version
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_csv from `anndata` is deprecated. Import anndata.io.read_csv instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_excel from `anndata` is deprecated. Import anndata.io.read_excel instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_hdf from `anndata` is deprecated. Import anndata.io.read_hdf instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_loom from `anndata` is deprecated. Import anndata.io.read_loom instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_mtx from `anndata` is deprecated. Import anndata.io.read_mtx instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_text from `anndata` is deprecated. Import anndata.io.read_text instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/anndata/__init__.py:70: FutureWarning: Importing read_umi_tools from `anndata` is deprecated. Import anndata.io.read_umi_tools instead.
+  return module_get_attr_redirect(attr_name, deprecated_mapping=_DEPRECATED)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/logging.py:151: FutureWarning: `__version__` is deprecated, use `importlib.metadata.version('anndata')` instead.
+  yield dist_name, imp.__version__
+... writing an h5ad cache file to speedup reading next time
+filtered out 1 cells that have less than 200 genes expressed
+filtered out 18395 genes that are detected in less than 3 cells
+normalizing counts per cell
+    finished (0:00:00)
+extracting highly variable genes
+    finished (0:00:00)
+--> added
+    'highly_variable', boolean vector (adata.var)
+    'means', float vector (adata.var)
+    'dispersions', float vector (adata.var)
+    'dispersions_norm', float vector (adata.var)
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/preprocessing/_scale.py:316: UserWarning: Received a view of an AnnData. Making a copy.
+  view_to_actual(adata)
+... as `zero_center=True`, sparse input is densified and may lead to large memory consumption
+computing PCA
+    with n_comps=30
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/preprocessing/_pca.py:208: FutureWarning: `__version__` is deprecated, use `importlib.metadata.version('anndata')` instead.
+  Version(ad.__version__) < Version("0.9")
+    finished (0:00:00)
+computing neighbors
+/Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/neighbors/__init__.py:411: FutureWarning: The method obsm_keys is deprecated and will be removed in the future. Use obsm instead of obsm_keys. (e.g. `k in adata.obsm` or `adata.obsm.keys() | {'u'}`)
+  if "X_diffmap" in adata.obsm_keys():
+    using 'X_pca' with n_pcs = 30
+    finished: added to `.uns['neighbors']`
+    `.obsp['distances']`, distances for each pair of neighbors
+    `.obsp['connectivities']`, weighted adjacency matrix (0:00:01)
+/Users/abhyaambati/bmi500/scanpy_pbmc.py:152: FutureWarning: In the future, the default backend for leiden will be igraph instead of leidenalg.
+
+ To achieve the future defaults please pass: flavor="igraph" and n_iterations=2.  directed must also be False to work with igraph's implementation.
+  sc.tl.leiden(adata, resolution=0.5)
+running Leiden clustering
+    finished: found 10 clusters and added
+    'leiden', the cluster labels (adata.obs, categorical) (0:00:01)
+computing UMAP
+    finished: added
+    'X_umap', UMAP coordinates (adata.obsm) (0:00:05)
+ranking genes
+    finished: added to `.uns['rank_genes_groups']`
+    'names', sorted np.recarray to be indexed by group ids
+    'scores', sorted np.recarray to be indexed by group ids
+    'logfoldchanges', sorted np.recarray to be indexed by group ids
+    'pvals', sorted np.recarray to be indexed by group ids
+    'pvals_adj', sorted np.recarray to be indexed by group ids (0:00:02)
+[TIMING] START settings
+scanpy==1.10.2 anndata==0.12.19 umap==0.5.12 numpy==1.26.4 scipy==1.17.1 pandas==2.3.3 scikit-learn==1.9.1 statsmodels==0.15.0 igraph==1.0.0 leidenalg==0.12.0 pynndescent==0.6.0
+using 1 threads
+[TIMING] END   settings: 2.4886 s
+[TIMING] START argparse
+[TIMING] END   argparse: 0.0003 s
+[TIMING] START io_read_10x
+[TIMING] END   io_read_10x: 0.4453 s
+[TIMING] START filter_cells_genes
+[TIMING] END   filter_cells_genes: 0.0239 s
+[TIMING] START normalize_log1p
+[TIMING] END   normalize_log1p: 0.0205 s
+[TIMING] START highly_variable_genes
+[TIMING] END   highly_variable_genes: 0.0264 s
+[TIMING] START scale
+[TIMING] END   scale: 0.0506 s
+[TIMING] START pca
+[TIMING] END   pca: 0.2180 s
+[TIMING] START neighbors
+[TIMING] END   neighbors: 1.7371 s
+[TIMING] START clustering
+[WARN] louvain not available; using leiden clustering instead
+[INFO] cluster key: leiden
+[TIMING] END   clustering: 1.5041 s
+[TIMING] START umap
+[TIMING] END   umap: 5.3936 s
+[TIMING] START write_h5ad
+AnnData object with n_obs × n_vars = 5418 × 2000
+    obs: 'n_genes', 'leiden'
+    var: 'gene_ids', 'n_cells', 'highly_variable', 'means', 'dispersions', 'dispersions_norm', 'mean', 'std'
+    uns: 'log1p', 'hvg', 'pca', 'neighbors', 'leiden', 'umap'
+    obsm: 'X_pca', 'X_umap'
+    varm: 'PCs'
+    obsp: 'distances', 'connectivities'
+[TIMING] END   write_h5ad: 0.0661 s
+[TIMING] START rank_genes_groups
+         106328 function calls (104360 primitive calls) in 2.227 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1022 to 40 due to restriction <40>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    2.227    2.227 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/legacy_api_wrap/__init__.py:83(fn_compatible)
+        1    0.000    0.000    2.227    2.227 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:469(rank_genes_groups)
+        1    0.002    0.002    2.194    2.194 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:398(compute_statistics)
+       11    0.002    0.000    2.155    0.196 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:277(wilcoxon)
+        9    0.000    0.000    1.855    0.206 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:45(_ranks)
+        8    0.000    0.000    1.840    0.230 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:10012(rank)
+        8    0.000    0.000    1.840    0.230 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:10127(ranker)
+        8    1.839    0.230    1.839    0.230 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/algorithms.py:1067(rank)
+        1    0.000    0.000    0.145    0.145 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scanpy/tools/_rank_genes_groups.py:174(_basic_stats)
+       28    0.000    0.000    0.136    0.005 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scipy/sparse/_index.py:29(__getitem__)
+       20    0.000    0.000    0.131    0.007 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scipy/sparse/_csc.py:140(_get_arrayXslice)
+       20    0.000    0.000    0.131    0.007 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/scipy/sparse/_compressed.py:651(_minor_index_fancy)
+       20    0.115    0.006    0.115    0.006 {built-in method scipy.sparse._sparsetools.csr_column_index2}
+  218/217    0.000    0.000    0.102    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1177(__getitem__)
+      135    0.000    0.000    0.098    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1690(_getitem_tuple)
+      215    0.000    0.000    0.098    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1720(_getitem_axis)
+       87    0.000    0.000    0.095    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1206(_getbool_axis)
+       80    0.000    0.000    0.094    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/indexing.py:1005(_getitem_tuple_same_dim)
+       87    0.000    0.000    0.093    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:4164(_take_with_is_copy)
+       87    0.000    0.000    0.093    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:4049(take)
+       87    0.000    0.000    0.091    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/managers.py:888(take)
+       88    0.000    0.000    0.089    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/managers.py:642(reindex_indexer)
+      133    0.000    0.000    0.088    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/blocks.py:1353(take_nd)
+  148/147    0.000    0.000    0.087    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/array_algos/take.py:59(take_nd)
+      147    0.086    0.001    0.087    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/array_algos/take.py:120(_take_nd_ndarray)
+       80    0.000    0.000    0.054    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/frame.py:11688(sum)
+       80    0.000    0.000    0.054    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:12563(sum)
+       80    0.000    0.000    0.054    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/generic.py:12524(_min_count_stat_function)
+       80    0.003    0.000    0.053    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/frame.py:11462(_reduce)
+       80    0.000    0.000    0.046    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/managers.py:1502(reduce)
+       80    0.000    0.000    0.043    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/internals/blocks.py:400(reduce)
+       80    0.000    0.000    0.042    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/frame.py:11485(blk_func)
+       80    0.000    0.000    0.042    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/nanops.py:76(_f)
+       80    0.000    0.000    0.041    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/nanops.py:389(new_func)
+       80    0.000    0.000    0.041    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/nanops.py:455(newfunc)
+       80    0.000    0.000    0.041    0.001 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/pandas/core/nanops.py:604(nansum)
+      972    0.026    0.000    0.026    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+      161    0.000    0.000    0.024    0.000 {method 'sum' of 'numpy.ndarray' objects}
+      161    0.000    0.000    0.024    0.000 /Users/abhyaambati/bmi500/.venv/lib/python3.13/site-packages/numpy/core/_methods.py:47(_sum)
+        1    0.000    0.000    0.019    0.019 /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/functools.py:930(wrapper)
+
+
+
+[PROFILE] wrote profiling_results/pbmc6k_cprofile_rank_genes.txt
+[PROFILE] wrote profiling_results/pbmc6k_cprofile_rank_genes.pstats
+[TIMING] END   rank_genes_groups: 2.2321 s
+[TIMING] wrote profiling_results/pbmc6k_section_timings.json
+[TIMING] SUMMARY
+  settings                     2.4886 s
+  argparse                     0.0003 s
+  io_read_10x                  0.4453 s
+  filter_cells_genes           0.0239 s
+  normalize_log1p              0.0205 s
+  highly_variable_genes        0.0264 s
+  scale                        0.0506 s
+  pca                          0.2180 s
+  neighbors                    1.7371 s
+  clustering                   1.5041 s
+  umap                         5.3936 s
+  write_h5ad                   0.0661 s
+  rank_genes_groups            2.2321 s
+  dataset                  pbmc6k
+  n_obs                    5418
+  n_vars                   2000
+	Command being timed: "python scanpy_pbmc.py --data-dir data --data-set pbmc6k --out-dir data --num-threads 1 --profile-dir profiling_results"
+	User time (seconds): 16.20
+	System time (seconds): 1.34
+	Percent of CPU this job got: 107%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:16.29
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 926480
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 117
+	Minor (reclaiming a frame) page faults: 192379
+	Voluntary context switches: 2318
+	Involuntary context switches: 62281
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 16384
+	Exit status: 0
+===== DONE pbmc6k =====
