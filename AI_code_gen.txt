@@ -1,0 +1,55 @@
+AI Code Generation Log — matvec_multiply assignment
+====================================================
+
+Date: 2026-09-16
+
+Tool / assistant
+----------------
+- Product: Cursor (AI coding assistant in the IDE)
+- Agent identity: Auto (agent router designed by Cursor)
+- Model: Composer (Cursor Composer family; powered by Composer as stated in the session)
+
+Conversation / prompts used
+---------------------------
+User request (paraphrased from the assignment checklist):
+
+  1. Generate the code based on the comments in matvec_multiply.py
+  2. Generate tests for your function in matvec_test.py
+     (repository file name is matvec_tests.py; tests were written there)
+  3. Assess possible failure modes for your matvec_multiply function,
+     and add logic to guard them
+  4. Document your prompts, the LLM and/or coding assistant used,
+     version of model, conversations. Save in AI_code_gen.txt
+  5. Check in your code to your forked repo
+
+Assistant approach
+------------------
+- Read existing stubs: matvec_multiply.py and matvec_tests.py
+- Implemented:
+  - dot_product(a, b): for-loop dot product with input validation
+  - matvec_multiply(matrix, vector): row-wise products via dot_product
+  - main(): smoke test with random 1000x1000 matrix and length-1000 vector
+- Wrote unittest suite covering happy paths and failure modes
+- Documented this session in AI_code_gen.txt
+- Committed and pushed to the forked GitHub repo (abhyaambati/bmi500)
+
+Failure modes considered and guarded
+------------------------------------
+dot_product:
+  - Non-sequence inputs
+  - String/bytes treated as sequences of characters
+  - Empty vectors
+  - Length mismatch between vectors
+  - Non-numeric elements (TypeError when multiplying)
+
+matvec_multiply:
+  - matrix / vector not sequences (or are strings)
+  - Empty matrix or empty vector
+  - Jagged matrix (row length != vector length / column count)
+  - Dimension mismatch (n_cols != len(vector))
+  - Non-numeric entries (delegated to / surfaced via dot_product)
+
+How to run
+----------
+  python matvec_multiply.py          # random 1000x1000 smoke test
+  python -m unittest matvec_tests.py # unit tests
